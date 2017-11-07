@@ -1,20 +1,96 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="http://angularjs.blogspot.ca/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container">
+<ngb-tabset #t="ngbTabset">
+  <ngb-tab id="tab-selectbyid1" title="Simple">
+    <ng-template ngbTabContent>
+      <p>Raw denim you probably haven't heard of them jean shorts Austin.</p>
+      <ngb-alert  [dismissible]="true" >This is a <strong> warning!!</strong> </ngb-alert>
+      <div>
+        <p>Using Structural directives</p>
+        <ul>
+          <li *ngFor='let color of colors' >{{color}}</li>
+        </ul>
+      </div>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab id="tab-selectbyid2">
+    <ng-template ngbTabTitle><b>Fancy</b> title</ng-template>
+    <ng-template ngbTabContent>
+      <!--<div>{{value}}</div>-->
+      <hr>
+      <button class="btn btn-primary" (click)="myMethod()">Toggle image</button>
+     <div><img  *ngIf="image" [src]="imageUrl" (click)='myMethod()'></div>
+    </ng-template>
+  </ngb-tab>
 
+<ngb-tab >
+    <ng-template ngbTabTitle>New Tab</ng-template>
+    <ng-template ngbTabContent>
+      <p [ngClass]="{classOne:cone,classTwo:ctwo}">using attribute directive ngClass</p>
+      Your Text : <input type='text' [(ngModel)]='userText'/>
+               <br/><br/>
+               <simple [simpleInput]='userText'></simple>
+               <hr>
+      <div>
+        <p>{{name}}</p>
+        <p>{{name | uppercase}}</p>
+        <p>{{name | lowercase}}</p>
+        <p>{{name | slice:'2':'6'}}</p>
+      </div>
+      <hr>
+      <div>
+        
+        <h2>{{50}}</h2>
+        <h2>{{50 | currency:'USD':true}}</h2>
+        <h2>{{50 | currency:'GBP':true}}</h2>
+        <h2>{{50 | currency:'INR':true}}</h2>
+      </div>
+      <hr>
+      <div>
+        <h2>{{date}}</h2>
+        <h2>{{date | date:'fullDate'}}</h2>
+        <h2>{{date | date:'shortDate'}}</h2>
+        <h2>{{date | date:'mediumTime'}}</h2>
+        <h2>{{date | date:'shortTime'}}</h2>
+      </div>
+    </ng-template>
+ </ngb-tab>
+<ngb-tab title="Disabled" [disabled]="true" >
+    
+    <template ngbTabContent>
+    <p>kjdlklk </p>
+    </template>
+  </ngb-tab>
+  <ngb-tab >
+    <ng-template ngbTabTitle>Forms</ng-template>
+    <ng-template ngbTabContent>
+      <h2>User Form Data</h2>
+      <app-childcomp></app-childcomp>
+    </ng-template>
+  </ngb-tab>
+  <ngb-tab >
+    <ng-template ngbTabTitle>HTTP service and observable</ng-template>
+    <ng-template ngbTabContent>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <tr>
+            <th>Employe ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone</th>
+          </tr>
+          <tr *ngFor="let employee of value">
+            <td>{{employee.id}}</td>
+            <td >{{employee.name}}</td>
+             <td >{{employee.email}}</td>
+              <td >{{employee.address.city}}</td>
+               <td >{{employee.phone}}</td>
+          </tr>
+        </table>
+      </div>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
+
+ 
+</div>
